@@ -14,7 +14,7 @@
 <div class="todo_container" ng-controller="TodoController as ctrl">
     <h1 class="header">TODO List</h1>
     <p class="info">A place to store the things you have to do!</p>
-    <input class="input" type="text" placeholder="Filter your todos" ng-model="searchText">
+    <input class="input" type="text" placeholder="Filter your todos" ng-model="searchText.task">
     <ol class="ol_list">
         <li class="items" ng-class="{ 'completed': item.completed }" ng-repeat="item in ctrl.objects | filter:searchText track by $index" ><input type="button" class="complete_button" value="Complete" ng-if="!item.completed" ng-click="ctrl.nowComplete($index)">{{item.task}}<i class="material-icons clear" ng-click="ctrl.removeItem($index)">clear</i></li>
     </ol>
