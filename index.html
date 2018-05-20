@@ -18,8 +18,8 @@
     <ol class="ol_list">
         <li class="items" ng-class="{ 'completed': item.completed }" ng-repeat="item in ctrl.objects | filter:searchText track by $index" ><input type="button" class="complete_button" value="Complete" ng-if="!item.completed" ng-click="ctrl.nowComplete($index)">{{item.task}}<i class="material-icons clear" ng-click="ctrl.removeItem($index)">clear</i></li>
     </ol>
-    <input class="input" type="text" placeholder="Add your to do" ng-model="ctrl.do.task">
-    <input class="add_button" type="button" value="Add" ng-click="ctrl.addItem(ctrl)">
+    <input class="input" type="text" placeholder="Add your to do" ng-model="ctrl.newTask.task">
+    <input class="add_button" type="button" value="Add" ng-click="ctrl.addItem(ctrl.newTask)">
 </div>
 
 
