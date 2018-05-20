@@ -12,16 +12,17 @@ function TodoController() {
 ];
 
     vm.removeItem = (index) => {
-        vm.objects.splice(index, 1);
+      vm.objects.splice(index, 1);
     }
 
-    vm.addItem = (ctrl) => {
-        vm.objects.push(ctrl.do);
-        ctrl.do = [];
+    vm.addItem = (newTask) => {
+      vm.newTask.completed = false;
+      vm.objects.push(vm.newTask);
+      vm.newTask = {};
     }
 
     vm.nowComplete = (index) => {
-        vm.objects[index].completed = true;
+      vm.objects[index].completed = true;
     }
 
 }
@@ -29,6 +30,4 @@ function TodoController() {
 
 
 
-angular
-    .module("todoApp")
-    .controller("TodoController", TodoController);
+angular.module("todoApp").controller("TodoController", TodoController);
