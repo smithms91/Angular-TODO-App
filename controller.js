@@ -21,6 +21,23 @@ function TodoController() {
       vm.newTask = {};
     }
 
+    vm.editItem = (index, item) => {
+      vm.allowEdit = true;
+      vm.tempItem = {
+        task: item.task,
+        completed: item.completed
+      };
+      vm.tempIndex = index;
+    }
+
+    vm.updateItem = (index, item) => {
+      vm.objects.splice(index, 1, {
+        task: item.task,
+        completed: item.completed
+      });
+      vm.allowEdit = false;
+    }
+
     vm.nowComplete = (index) => {
       vm.objects[index].completed = true;
     }

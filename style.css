@@ -99,3 +99,16 @@ body {
 .completed {
     text-decoration: line-through;
 }
+
+.edit {
+    font-size: 20px;
+    position: absolute;
+    right: 5px;
+    cursor: pointer;
+}
+
+.edit_form {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+}

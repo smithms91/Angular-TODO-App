@@ -16,10 +16,19 @@
     <p class="info">A place to store the things you have to do!</p>
     <input class="input" type="text" placeholder="Filter your todos" ng-model="searchText.task">
     <ol class="ol_list">
-        <li class="items" ng-class="{ 'completed': item.completed }" ng-repeat="item in ctrl.objects | filter:searchText track by $index" ><input type="button" class="complete_button" value="Complete" ng-if="!item.completed" ng-click="ctrl.nowComplete($index)">{{item.task}}<i class="material-icons clear" ng-click="ctrl.removeItem($index)">clear</i></li>
+        <li class="items" ng-class="{ 'completed': item.completed }" ng-repeat="item in ctrl.objects | filter:searchText track by $index">
+            <input type="button" class="complete_button" value="Complete" ng-if="!item.completed" ng-click="ctrl.nowComplete($index)">
+            {{item.task}}
+            <i class="material-icons edit" ng-click="ctrl.editItem($index, item);">edit</i>
+            <i class="material-icons clear" ng-click="ctrl.removeItem($index);">clear</i>
+        </li>
     </ol>
+    <form class="edit_form" ng-submit="ctrl.updateItem(ctrl.tempIndex, ctrl.tempItem);" ng-show="ctrl.allowEdit">
+        <input class="input" placeholder="Edit Item" type="text" ng-model="ctrl.tempItem.task">
+        <button>Submit</button>
+    </form>
     <input class="input" type="text" placeholder="Add your to do" ng-model="ctrl.newTask.task">
-    <input class="add_button" type="button" value="Add" ng-click="ctrl.addItem(newTask)">
+    <input class="add_button" type="button" value="Add" ng-click="ctrl.addItem(newTask);">
 </div>
 
 
