@@ -19,7 +19,7 @@
         <li class="items" ng-class="{ 'completed': item.completed }" ng-repeat="item in ctrl.objects | filter:searchText track by $index">
             <input type="button" class="complete_button" value="Complete" ng-if="!item.completed" ng-click="ctrl.nowComplete($index)">
             {{item.task}}
-            <i class="material-icons edit" ng-click="ctrl.editItem($index, item);">edit</i>
+            <i class="material-icons edit" ng-if="!item.completed" ng-click="ctrl.editItem($index, item);">edit</i>
             <i class="material-icons clear" ng-click="ctrl.removeItem($index);">clear</i>
         </li>
     </ol>
